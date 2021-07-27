@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  Three Letter Word HAckwich
+//  Three Letter Word Hackwich
 //
 //  Created by Henry Majewski on 7/26/21.
 //
@@ -16,9 +16,19 @@ struct ContentView: View {
             Text("Three Letter Word")
                 .padding()
             Text("Tap the gray box to change the letter")
+            CustomLetterBox(color: Color.gray, text: letter)
+                .onTapGesture {
+                    let position = alphabet.index(alphabet.startIndex, offsetBy: counter)
+                    letter = String(alphabet[position])
+                    counter += 1
+                    if counter == alphabet.count {
+                        counter = 0
+                }
+            }
         }
     }
 }
+
 
 struct CustomLetterBox: View{
     let color: Color
